@@ -1,0 +1,8 @@
+.sidebarRow {
+    display: flex;
+}
+
+.sidebarRow:hover .sidebarRow__Icons.MuiSvgIcon-root {
+    color: red;
+    transition: all 0.2s ease-in-out;
+}
