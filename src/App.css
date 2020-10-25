@@ -1,3 +1,11 @@
+.app {
+    background-color: #f1f2f5;
+}
+
 .app__page {
-    display: flex;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 18% 52% 20%;
 }

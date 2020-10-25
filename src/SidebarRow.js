@@ -1,11 +1,20 @@
 import React from "react";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import "./SidebarRow.css";
-const SidebarRow = ({ title, Icon }) => {
+import { logout } from "./Redux/userSlice";
+import { useDispatch } from "react-redux";
+const SidebarRow = ({ title, Icon, src, logouts }) => {
+  const dispatch = useDispatch();
   return (
-    <ListItem button className="sidebarRow">
+    <ListItem
+      button
+      className="sidebarRow"
+      onClick={logout ? () => dispatch(logout()) : null}
+    >
       <ListItemIcon>
-        <Icon className="sidebarRow__Icons" />
+        {src ? <Avatar src={src} /> : null}
+        {Icon ? <Icon /> : null}
       </ListItemIcon>
       <ListItemText primary={title} />
     </ListItem>

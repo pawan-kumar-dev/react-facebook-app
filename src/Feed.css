@@ -1,0 +1,13 @@
+.feed {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.feed::-webkit-scrollbar {
+    /* hide scrollbar on chrome */
+    display: none;
+}

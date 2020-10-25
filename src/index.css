@@ -9,9 +9,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f1f2f5;
+  /* hide scrollbar on ie */
+  -ms-overflow-style: none;
+  /* hide scrollbar on firebox */
+  scrollbar-width: none;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body::-webkit-scrollbar {
+  /* hide scrollbar on chrome */
+  display: none;
 }

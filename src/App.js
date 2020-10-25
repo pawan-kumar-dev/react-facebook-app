@@ -1,33 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import Recommended from "./Recommended";
-
+import Feed from "./Feed";
+import Widgets from "./Widgets";
+import { auth } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, login, logout } from "./Redux/userSlice";
+import Login from "./Login";
 function App() {
-  const [open, setOpen] = useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-  const handleDrawer = () => {
-    setOpen(!open);
-  };
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        dispatch(
+          login({
+            uid: authUser.uid,
+            photo: authUser.photoURL,
+            email: authUser.email,
+            displayName: authUser.displayName
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
   return (
     <div className="app">
-      <Header handleDrawer={handleDrawer} />
-      <div className="app__page">
-        <Sidebar
-          open={open}
-          handleDrawerClose={handleDrawerClose}
-          handleDrawerOpen={handleDrawerOpen}
-        />
-        <Recommended />
-      </div>
+      {user ? (
+        <>
+          <Header />
+          <div className="app__page">
+            <Sidebar />
+            <Feed />
+            <Widgets />
+          </div>
+        </>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }
