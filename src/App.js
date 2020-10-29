@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -8,9 +8,12 @@ import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, login, logout } from "./Redux/userSlice";
 import Login from "./Login";
+import { useMediaQuery, SwipeableDrawer } from "@material-ui/core";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const matches = useMediaQuery("(max-width:600px)");
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
       if (authUser) {
@@ -31,9 +34,20 @@ function App() {
     <div className="app">
       {user ? (
         <>
-          <Header />
+          <Header open={() => setOpen(!open)} />
           <div className="app__page">
-            <Sidebar />
+            {matches ? (
+              <SwipeableDrawer
+                anchor="left"
+                open={open}
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
+              >
+                <Sidebar />
+              </SwipeableDrawer>
+            ) : (
+              <Sidebar />
+            )}
             <Feed />
             <Widgets />
           </div>

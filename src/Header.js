@@ -6,15 +6,16 @@ import FlagIcon from "@material-ui/icons/Flag";
 import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar, IconButton, useMediaQuery } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import ForumIcon from "@material-ui/icons/Forum";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { selectUser } from "./Redux/userSlice";
 import { useSelector } from "react-redux";
-const Header = () => {
+const Header = ({ open }) => {
   const user = useSelector(selectUser);
+  const matches = useMediaQuery("(max-width:600px)");
   return (
     <div className="header">
       <div className="header__left">
@@ -22,6 +23,7 @@ const Header = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
           alt="fb-logo"
           className="header__logo"
+          onClick={matches ? open : null}
         />
         <div className="header__input">
           <SearchIcon />

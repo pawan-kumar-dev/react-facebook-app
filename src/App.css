@@ -9,3 +9,9 @@
     height: 100vh;
     grid-template-columns: 18% 52% 20%;
 }
+
+@media(max-width:600px) {
+    .app__page {
+        grid-template-columns: 100%;
+    }
+}
