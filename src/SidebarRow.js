@@ -10,7 +10,7 @@ const SidebarRow = ({ title, Icon, src, logouts }) => {
     <ListItem
       button
       className="sidebarRow"
-      onClick={logout ? () => dispatch(logout()) : null}
+      onClick={logouts ? () => dispatch(logout()) : null}
     >
       <ListItemIcon>
         {src ? <Avatar src={src} /> : null}

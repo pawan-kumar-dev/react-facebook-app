@@ -17,7 +17,7 @@ const MessageSender = () => {
     if (input) {
       db.collection("posts").add({
         message: input,
-        timestamp: firebase.firestore.fieldValue.serverTimestamp(),
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         profileImage: user.photo,
         username: user.email.split("@")[0],
         image: imageUrl ? imageUrl : null
