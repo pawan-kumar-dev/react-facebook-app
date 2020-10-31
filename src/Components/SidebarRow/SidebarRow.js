@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
 import "./SidebarRow.css";
-import { logout } from "./Redux/userSlice";
+import { logout } from "../../Redux/userSlice";
 import { useDispatch } from "react-redux";
 const SidebarRow = ({ title, Icon, src, logouts }) => {
   const dispatch = useDispatch();

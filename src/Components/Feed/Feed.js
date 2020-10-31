@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Feed.css";
-import StoryRow from "./StoryRow";
-import MessageSender from "./MessageSender";
-import Post from "./Post";
-import db from "./firebase";
+import StoryRow from "../StoryRow/StoryRow";
+import MessageSender from "../MessageSender/MessageSender";
+import Post from "../Post/Post";
+import db from "../../Config/firebase";
 import FlipMove from "react-flip-move";
 const Feed = () => {
   const [posts, setPosts] = useState([]);

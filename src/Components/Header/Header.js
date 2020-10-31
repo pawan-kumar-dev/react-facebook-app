@@ -11,19 +11,22 @@ import AddIcon from "@material-ui/icons/Add";
 import ForumIcon from "@material-ui/icons/Forum";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { selectUser } from "./Redux/userSlice";
+import { selectUser } from "../../Redux/userSlice";
 import { useSelector } from "react-redux";
+import MenuIcon from "@material-ui/icons/Menu";
 const Header = ({ open }) => {
   const user = useSelector(selectUser);
   const matches = useMediaQuery("(max-width:600px)");
   return (
     <div className="header">
       <div className="header__left">
+        {matches && (
+          <MenuIcon onClick={open} fontSize="large" className="header__menu" />
+        )}
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
           alt="fb-logo"
           className="header__logo"
-          onClick={matches ? open : null}
         />
         <div className="header__input">
           <SearchIcon />

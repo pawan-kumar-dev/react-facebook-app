@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import SidebarRow from "./SidebarRow";
+import SidebarRow from "../SidebarRow/SidebarRow";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
@@ -8,7 +8,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 import PeopleIcon from "@material-ui/icons/People";
 import EmojiFlagsIcon from "@material-ui/icons/EmojiFlags";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { selectUser } from "./Redux/userSlice";
+import { selectUser } from "../../Redux/userSlice";
 import { useSelector } from "react-redux";
 const Sidebar = () => {
   const user = useSelector(selectUser);

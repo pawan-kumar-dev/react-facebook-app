@@ -73,6 +73,12 @@
     display: flex;
 }
 
+.header__menu {
+    margin-right: 10px;
+    cursor: pointer;
+    color: #2e81f4;
+}
+
 @media(max-width:820px) {
     .header {
         flex-direction: column;

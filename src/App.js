@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Feed from "./Feed";
-import Widgets from "./Widgets";
-import { auth } from "./firebase";
+import Header from "./Components/Header/Header";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Feed from "./Components/Feed/Feed";
+import Widgets from "./Components/Widgets/Widgets";
+import { auth } from "./Config/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, login, logout } from "./Redux/userSlice";
-import Login from "./Login";
+import Login from "./Components/Login/Login";
 import { useMediaQuery, SwipeableDrawer } from "@material-ui/core";
 function App() {
   const dispatch = useDispatch();
