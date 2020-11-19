@@ -15,71 +15,75 @@ import { selectUser } from "../../Redux/userSlice";
 import { useSelector } from "react-redux";
 import MenuIcon from "@material-ui/icons/Menu";
 const Header = ({ open }) => {
-  const user = useSelector(selectUser);
-  const matches = useMediaQuery("(max-width:600px)");
-  return (
-    <div className="header">
-      <div className="header__left">
-        {matches && (
-          <MenuIcon onClick={open} fontSize="large" className="header__menu" />
-        )}
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
-          alt="fb-logo"
-          className="header__logo"
-        />
-        <div className="header__input">
-          <SearchIcon />
-          <input type="text" placeholder="Search facebook" />
-        </div>
-      </div>
-      <div className="header__middle">
-        <div className="header__option header__option--active">
-          <IconButton>
-            <HomeIcon fontSize="large" />
-          </IconButton>
-        </div>
-        <div className="header__option ">
-          <IconButton>
-            <FlagIcon fontSize="large" />
-          </IconButton>
-        </div>
-        <div className="header__option">
-          <IconButton>
-            <SubscriptionsIcon fontSize="large" />
-          </IconButton>
-        </div>
-        <div className="header__option">
-          <IconButton>
-            <StorefrontOutlinedIcon fontSize="large" />
-          </IconButton>
-        </div>
-        <div className="header__option">
-          <IconButton>
-            <SupervisedUserCircleIcon fontSize="large" />
-          </IconButton>
-        </div>
-      </div>
-      <div className="header__right">
-        <div className="header__info">
-          <Avatar src={user.photo} />
-          <h4>{user.email.split("@")[0]}</h4>
-        </div>
-        <IconButton>
-          <AddIcon />
-        </IconButton>
-        <IconButton>
-          <ForumIcon />
-        </IconButton>
-        <IconButton>
-          <NotificationsActiveIcon />
-        </IconButton>
-        <IconButton>
-          <ExpandMoreIcon />
-        </IconButton>
-      </div>
-    </div>
-  );
+     const user = useSelector(selectUser);
+     const matches = useMediaQuery("(max-width:600px)");
+     return (
+          <div className="header">
+               <div className="header__left">
+                    {matches && (
+                         <MenuIcon
+                              onClick={open}
+                              fontSize="large"
+                              className="header__menu"
+                         />
+                    )}
+                    <img
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
+                         alt="fb-logo"
+                         className="header__logo"
+                    />
+                    <div className="header__input">
+                         <SearchIcon />
+                         <input type="text" placeholder="Search facebook" />
+                    </div>
+               </div>
+               <div className="header__middle">
+                    <div className="header__option header__option--active">
+                         <IconButton>
+                              <HomeIcon fontSize="large" />
+                         </IconButton>
+                    </div>
+                    <div className="header__option ">
+                         <IconButton>
+                              <FlagIcon fontSize="large" />
+                         </IconButton>
+                    </div>
+                    <div className="header__option">
+                         <IconButton>
+                              <SubscriptionsIcon fontSize="large" />
+                         </IconButton>
+                    </div>
+                    <div className="header__option">
+                         <IconButton>
+                              <StorefrontOutlinedIcon fontSize="large" />
+                         </IconButton>
+                    </div>
+                    <div className="header__option">
+                         <IconButton>
+                              <SupervisedUserCircleIcon fontSize="large" />
+                         </IconButton>
+                    </div>
+               </div>
+               <div className="header__right">
+                    <div className="header__info">
+                         <Avatar src={user.photo} />
+                         <h4>{user.email.split("@")[0]}</h4>
+                    </div>
+                    <IconButton>
+                         <AddIcon />
+                    </IconButton>
+                    <IconButton>
+                         <ForumIcon />
+                    </IconButton>
+                    <IconButton>
+                         <NotificationsActiveIcon />
+                    </IconButton>
+                    <IconButton>
+                         <ExpandMoreIcon />
+                    </IconButton>
+               </div>
+          </div>
+     );
 };
 
 export default Header;

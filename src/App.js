@@ -10,53 +10,53 @@ import { selectUser, login, logout } from "./Redux/userSlice";
 import Login from "./Components/Login/Login";
 import { useMediaQuery, SwipeableDrawer } from "@material-ui/core";
 function App() {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-  const matches = useMediaQuery("(max-width:600px)");
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    auth.onAuthStateChanged(authUser => {
-      if (authUser) {
-        dispatch(
-          login({
-            uid: authUser.uid,
-            photo: authUser.photoURL,
-            email: authUser.email,
-            displayName: authUser.displayName
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-  }, [dispatch]);
-  return (
-    <div className="app">
-      {user ? (
-        <>
-          <Header open={() => setOpen(!open)} />
-          <div className="app__page">
-            {matches ? (
-              <SwipeableDrawer
-                anchor="left"
-                open={open}
-                onClose={() => setOpen(false)}
-                onOpen={() => setOpen(true)}
-              >
-                <Sidebar />
-              </SwipeableDrawer>
-            ) : (
-              <Sidebar />
-            )}
-            <Feed />
-            <Widgets />
+     const dispatch = useDispatch();
+     const user = useSelector(selectUser);
+     const matches = useMediaQuery("(max-width:600px)");
+     const [open, setOpen] = useState(false);
+     useEffect(() => {
+          auth.onAuthStateChanged((authUser) => {
+               if (authUser) {
+                    dispatch(
+                         login({
+                              uid: authUser.uid,
+                              photo: authUser.photoURL,
+                              email: authUser.email,
+                              displayName: authUser.displayName,
+                         })
+                    );
+               } else {
+                    dispatch(logout());
+               }
+          });
+     }, [dispatch]);
+     return (
+          <div className="app">
+               {user ? (
+                    <>
+                         <Header open={() => setOpen(!open)} />
+                         <div className="app__page">
+                              {matches ? (
+                                   <SwipeableDrawer
+                                        anchor="left"
+                                        open={open}
+                                        onClose={() => setOpen(false)}
+                                        onOpen={() => setOpen(true)}
+                                   >
+                                        <Sidebar />
+                                   </SwipeableDrawer>
+                              ) : (
+                                   <Sidebar />
+                              )}
+                              <Feed />
+                              <Widgets />
+                         </div>
+                    </>
+               ) : (
+                    <Login />
+               )}
           </div>
-        </>
-      ) : (
-        <Login />
-      )}
-    </div>
-  );
+     );
 }
 
 export default App;

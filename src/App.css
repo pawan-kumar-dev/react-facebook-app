@@ -1,17 +1,17 @@
 .app {
-    background-color: #f1f2f5;
+     background-color: #f1f2f5;
 }
 
 .app__page {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 18% 52% 20%;
+     max-width: 1240px;
+     margin: 0 auto;
+     display: grid;
+     height: 100vh;
+     grid-template-columns: 18% 52% 20%;
 }
 
-@media(max-width:600px) {
-    .app__page {
-        grid-template-columns: 100%;
-    }
+@media (max-width: 600px) {
+     .app__page {
+          grid-template-columns: 100%;
+     }
 }

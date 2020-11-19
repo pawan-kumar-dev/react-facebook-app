@@ -12,15 +12,15 @@ import cats9 from "../../Assets/cats9.jpg";
 import cats10 from "../../Assets/cats10.jpg";
 import "./StoryRow.css";
 const StoryRow = () => {
-  return (
-    <div className="storyRow">
-      <Story profileSrc={cats1} src={cats2} title="Cute Cats" />
-      <Story profileSrc={cats3} src={cats4} title="Funny Cats" />
-      <Story profileSrc={cats5} src={cats6} title="Cats Pic" />
-      <Story profileSrc={cats7} src={cats8} title="Cats Dance" />
-      <Story profileSrc={cats9} src={cats10} title="Cats Swag" />
-    </div>
-  );
+     return (
+          <div className="storyRow">
+               <Story profileSrc={cats1} src={cats2} title="Cute Cats" />
+               <Story profileSrc={cats3} src={cats4} title="Funny Cats" />
+               <Story profileSrc={cats5} src={cats6} title="Cats Pic" />
+               <Story profileSrc={cats7} src={cats8} title="Cats Dance" />
+               <Story profileSrc={cats9} src={cats10} title="Cats Swag" />
+          </div>
+     );
 };
 
 export default StoryRow;
